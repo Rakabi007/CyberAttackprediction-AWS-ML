@@ -1,7 +1,6 @@
 # 🛡️ ML Cyber Attack Prediction System
 
-## 📺 Video Tutorial
-**[Watch the Complete Video Tutorial on YouTube](https://youtu.be/3-mH1ynRf7U)** - Step-by-step guide for setting up and deploying the entire system.
+
 
 ## 🌟 Project Overview
 
@@ -99,67 +98,8 @@ Before deploying, you'll need:
 5. **EC2 Key Pair** for SSH access
 6. **Two GitHub Repositories** (details below)
 
-## 🔧 Deployment Instructions
 
-### Step 1: Prepare GitHub Repositories
 
-You need to create **two separate GitHub repositories**:
-
-1. **Repository 1: monitor-app**
-   - Name: `your-monitor-app-repo`
-   - Contains: All files from the `monitor-app/` directory
-   - Branch: `master` (or your preferred branch)
-
-2. **Repository 2: ml-service**
-   - Name: `your-ml-service-repo`
-   - Contains: All files from the `ml-service/` directory
-   - Branch: `master` (or your preferred branch)
-
-### Step 2: Set Up AWS CodeStar Connection
-
-1. Go to AWS CodePipeline → Settings → Connections
-2. Create a new connection to GitHub
-3. Authorize AWS to access your GitHub repositories
-4. Note the Connection ARN for the CloudFormation parameters
-
-### Step 3: Deploy CloudFormation Stack
-
-1. Open AWS CloudFormation Console
-2. Click "Create Stack" → "With new resources"
-3. Upload the `CF_NETWORK_ATTACK_PREDICTION.yml` template
-4. Configure the parameters (see below)
-5. Review and create the stack
-
-### 📝 CloudFormation Parameters
-
-Replace the example values below with your actual AWS resource IDs:
-
-```yaml
-Parameters:
-  # Network Configuration
-  VpcId:
-    Default: vpc-EXAMPLE123456  # Replace with your VPC ID
-    
-  SubnetIds:
-    Default: "subnet-EXAMPLE1,subnet-EXAMPLE2,subnet-EXAMPLE3"  # Your public subnets
-    
-  ALBSecurityGroupId:
-    Default: sg-EXAMPLE789  # Your security group allowing ports 80 & 443
-    
-  # SSL Certificate (Optional - for HTTPS)
-  ACMCertificateArn:
-    Default: arn:aws:acm:region:account:certificate/EXAMPLE-CERT-ID  # Your ACM certificate
-    
-  # EC2 Configuration
-  KeyPairName:
-    Default: your-keypair-name  # Your EC2 key pair for SSH access
-    
-  InstanceType:
-    Default: t3a.medium  # Instance type for monitor-app
-    
-  MlInstanceType:
-    Default: t3a.medium  # Instance type for ml-service
-    
   RootVolumeSize:
     Default: 36  # GB for monitor-app instances
     
@@ -293,9 +233,7 @@ The ML pipeline implements a sophisticated multi-stage approach:
 4. Push to your fork
 5. Create a Pull Request
 
-## 📄 License
 
-This project is part of an educational cyber security initiative.
 
 ## 🆘 Support & Troubleshooting
 
@@ -316,21 +254,7 @@ This project is part of an educational cyber security initiative.
    - Verify health check configuration
    - Review instance logs
 
-### Getting Help
 
-- Check component-specific READMEs for detailed documentation
-- Review CloudFormation events for deployment issues
-- Monitor CloudWatch logs for application errors
-- Consult AWS documentation for service-specific guidance
-
-## 🎓 Educational Purpose
-
-This system is designed for educational purposes to demonstrate:
-- Modern cloud-native architecture
-- Machine learning in cybersecurity
-- Infrastructure as Code practices
-- CI/CD pipeline implementation
-- Real-world network security monitoring
 
 ---
 
